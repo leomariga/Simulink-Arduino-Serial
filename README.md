@@ -13,7 +13,7 @@ To overcome the problem we can send and receive data using the serial blocks fro
 * [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
 * [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
 
-Using this blocks you can send and receive bytes in Arduino and interpret it (you can send ASCII, floats, ints or whatever you want!! \o/).
+Using this blocks you can send and receive bytes in Arduino and interpret it - you can send ASCII, floats, ints or whatever you want!! \o/.
 
 
 ## Configuring your Serial
@@ -23,13 +23,13 @@ Using this blocks you can send and receive bytes in Arduino and interpret it (yo
 
 In this example we are sending an Arduino `float` (4 bytes) to Simulink (which is called `single`). 
 
-**Important: You need to configure your Serial port BEFORE sending or receiving data, so remember to [Use the configuration block](#configuring-your-serial) before continuing.**
+**IMPORTANT: You need to configure your Serial port BEFORE sending or receiving data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
 
 
 ## Sending data from Simulink to Arduino
 
 
-```python
+<!-- ```python
 import foobar
 
 foobar.pluralize('word') # returns 'words'
@@ -43,4 +43,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/) -->
