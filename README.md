@@ -1,10 +1,11 @@
 # Simulink and Arduino connection
 
-Welcome! 
+Welcome! You are here because you are trying to connect your Arduino board to Simulink to transmit some variables (like a hardware in the loop) but everything is going wrong and your world is falling apart. 
 
-You are here because you are trying to connect your Arduino board to Simulink to transmit some variables (like a hardware in the loop) but everything is going wrong so you are in right place.
+In this tutorial, we are NOT using the [official Simulink Arduino Package](https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html), which enables you to acess directely Arduino pins and many other features. However, this library uses an specific Arduino code, so you can't customize the code inside the board (if you want to use the Arduino as a control device for a "Hardware in the loop" project, as example).
 
-You might not know how to start this connection or you bravely discovered how to do it by yourself but nothing is transmitted correctely and your world is falling apart. Don't worry, I'm here to help =) 
+## The solution
+testessssss
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
