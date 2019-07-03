@@ -54,7 +54,7 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 
 Well done! You can now receive the Arduino data. The only step left is convert it to the variable you want to work, in my case, a `double`.
 
-Serial receive final block diagram:
+### Serial receive final block diagram:
 
 ![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkReceiveblocks.png)
 
@@ -69,6 +69,28 @@ typedef union{
 
 FLOATUNION_t myValue;
 ```
+
+When you need to attribute a value for your `float`, you simply call:
+
+```c++
+myValue.number = 1.2;
+```
+
+To send this number just call `Serial.write()` for each `myValue.bytes[i]`. **Remember to send the header and the terminator** and create a loop with the same time delay as configured in Simulink. The code below illustrates this process:
+
+```c++
+  // Print header: Important to avoid sync errors!
+  Serial.write('A'); 
+  
+  // Print float data
+  for (int i=0; i<4; i++){
+    Serial.write(myValue.bytes[i]); 
+  }
+  // Print terminator
+  Serial.print('\n');
+```
+
+
 
 ## Sending data from Simulink to Arduino
 
