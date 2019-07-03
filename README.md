@@ -21,17 +21,23 @@ In this example we are sending and receiving binary data, more specificaly, an A
 ## Configuring your Serial
 Well, first of all, you need to configure the Serial Port you are using for this communication. To do that, simply put the [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html) block anywhere you want in your Simulink project. 
 
-![alt text](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
+![configserial](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
 
 Make sure your Arduino is connected to your computer and select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is using, open your Arduino IDE > Tools > Ports. 
 
-Next, select the **Baud rate** used to communicate with Arduino. Some standard values are 9600 and 115200. This is usually configured in the `setup()` function in your Arduino code. The other parameters in the block you can **simply use the same as the image above** or change it if you know what you are doing.
+Next, select the **Baud rate** to communicate with Arduino. Some standard values are 9600 and 115200. This is usually configured in the `setup()` function in your Arduino code. The other parameters in the block you can **simply use the same as the image above** or change it if you know what you are doing.
 
 
 ## Sending data from Arduino to Simulink
 
-
 **IMPORTANT: You need to configure your serial port BEFORE sending or receiving data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
+
+
+### Simulink setup
+Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data to your Simulink project. You need to do some configurations in this block to make the communication correctly. You can see how to configure this block in the figure below. 
+
+
+![seriareceiveblock](serialreceiveblock.png)
 
 
 
