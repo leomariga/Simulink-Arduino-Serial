@@ -13,27 +13,29 @@ To overcome the problem we can send and receive data using the serial blocks fro
 * [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
 * [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
 
-Using this blocks you can send and receive bytes in Arduino and interpret it - you can send ASCII, floats, ints or whatever you want!! \o/. 
+Using this blocks you can send and receive bytes in Arduino and interpret it as ASCII, floats, ints or whatever you want!! \o/. 
 
 In this example we are sending and receiving binary data, more specificaly, an Arduino `float` (4 bytes) or Simulink  `single`. Though, you can use this same code to send other types of variables. 
 
 
 ## Configuring your Serial
-Well, first of all, you need to configure the Serial Port you are using for this communication. To do that, simply put the [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html) block in your Simulink project. 
+Well, first of all, you need to configure the Serial Port you are using for this communication. To do that, simply put the [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html) block anywhere you want in your Simulink project. 
 
 ![alt text](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
 
-Make sure your Arduino is connected select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is connected, open your Arduino IDE > Tools > Ports. 
+Make sure your Arduino is connected to your computer and select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is connected, open your Arduino IDE > Tools > Ports. 
 
-Select the **Baud rate** used to communicate with Arduino Serial. Some standard values are 9600 and 115200. 
+Next, select the **Baud rate** used to communicate with Arduino. Some standard values are 9600 and 115200. This is usually configured in the `setup()` function in your Arduino code. 
 
-The next parameters in the block you can simply put the same as the image above (or change it the way you want to do the communication).
+The other parameters in the block you can **simply use the same as the image above** (or change it the way you want to do the communication if you know what you are doing).
 
 
 ## Sending data from Arduino to Simulink
 
 
-**IMPORTANT: You need to configure your Serial port BEFORE sending or receiving data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
+**IMPORTANT: You need to configure your serial port BEFORE sending or receiving data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
+
+
 
 
 ## Sending data from Simulink to Arduino
