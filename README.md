@@ -33,7 +33,7 @@ Next, select the **Baud rate** to communicate with Arduino. Some standard values
 **IMPORTANT: You need to configure your serial port BEFORE sending or receiving data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
 
 
-### Simulink setup - receive
+### Simulink setup - Receive
 Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data in your Simulink project. You need to configure this block to make the communication correctly. You can see how to configure this block in the figure below. 
 
 ![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
@@ -58,7 +58,7 @@ Well done! You can now receive the Arduino data. The only step left is convert i
 
 ![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkReceiveblocks.png)
 
-## Arduino setup - send
+## Arduino setup - Send
 To send binary data from Arduino you have to convert your `float` to an array of bytes `uint8_t`. An interesting strategy is to use an *union* type like the code below:
 
 ```c++
@@ -98,7 +98,7 @@ Serial.print('\n');
 **IMPORTANT: As for the receive block, you need to configure your serial port BEFORE sending data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
 
 
-### Simulink setup - send
+### Simulink setup - Send
 To send data from Simulink create a project similar to the image below. 
 
 ![serialsendsimulink](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkSendblocks.png)
@@ -113,5 +113,5 @@ Byte Pack | Convert `single` signal to byte. Use Byte alignment 4 and Data Type 
 Serial Send | Send the bytes. You can add a Header and a Terminator if you want, but I had no problem sending this data without them.
 
 
-### Arduino Setup - receive
+### Arduino Setup - Receive
 To receive a float in Arduino, first use the same *union* as in [use the configuration block](#configuring-your-serial) 
