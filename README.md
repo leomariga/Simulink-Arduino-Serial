@@ -38,7 +38,13 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 
 ![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
 
+#### Configuring you Serial Receive block:
 
+* **Communication port:** Use the same one you configured in the step above.
+* **Header:** Makes Simulink understand when the message is going to start. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues. (If you don't use, after some time receving data simulink crashes.)
+
+
+Select the same communication port used in the configuration block in the step above. 
 
 
 ## Sending data from Simulink to Arduino
