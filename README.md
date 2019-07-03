@@ -106,7 +106,7 @@ To send data from Simulink create a project similar to the image below.
 
 Block | Function
 ------------ | -------------
-(step) ref1 | Generate the signal you want to send.
+Step| Generate the signal you want to send.
 Zero-Order Hold | Used to set the simulation send rate.
 Single | Convert this signal to a `single` (4 bytes).
 Byte Pack | Convert `single` signal to byte. Use Byte alignment 4 and Data Type uint32.
@@ -114,4 +114,26 @@ Serial Send | Send the bytes. You can add a Header and a Terminator if you want,
 
 
 ### Arduino Setup - Receive
-To receive a float in Arduino, first use the same *union* as in [use the configuration block](#configuring-your-serial) 
+To receive a `float` in Arduino, first use the same *union* as in [Arduino Send code](#arduino-setup---send). Then, just create a function called `getFloat()` as follows:
+
+```c++
+float getFloat(){
+    int cont = 0;
+    FLOATUNION_t f;
+    while (cont < 4 ){
+        f.bytes[cont] = Serial.read() ;
+        cont = cont +1;
+    }
+    return f.number;
+}
+```
+
+Then, in your loop, just call 
+
+```c++
+FLOATUNION_t myValue;
+
+myValue.number = getFloat();
+```
+
+If you are sending more then one variable, remember to call `getFloat()` as many time as the number of `floats` you are sending. [A receive example can be found here](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_send_Arduino_receive/arduinoReceive/arduinoReceive.ino)
