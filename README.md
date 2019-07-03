@@ -56,8 +56,19 @@ Well done! You can now receive the Arduino data. The only step left is convert i
 
 Serial receive final block diagram:
 
-![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
+![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkReceiveblocks.png)
 
+## Arduino setup
+To send binary data from Arduino you have to convert your `float` to an array of bytes `uint8_t`. An interesting strategy is to use an *union* type like the code below:
+
+```c++
+typedef union{
+  float number;
+  uint8_t bytes[4];
+} FLOATUNION_t;
+
+FLOATUNION_t myValue;
+```
 
 ## Sending data from Simulink to Arduino
 
