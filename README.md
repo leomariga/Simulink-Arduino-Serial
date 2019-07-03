@@ -76,19 +76,19 @@ When you need to attribute a value for your `float`, you simply call:
 myValue.number = 1.2;
 ```
 
-To send this number just call `Serial.write()` for each `myValue.bytes[i]`. **Remember to send the header and the terminator** and create a loop with the same time delay as configured in Simulink. The code below illustrates this process:
+To send this number just call `Serial.write()` for each `myValue.bytes[i]`. **Remember to also send the header and the terminator**. The code below illustrates this process:
 
 ```c++
-  // Print header: Important to avoid sync errors!
-  Serial.write('A'); 
-  
-  // Print float data
-  for (int i=0; i<4; i++){
-    Serial.write(myValue.bytes[i]); 
-  }
-  // Print terminator
-  Serial.print('\n');
+Serial.write('A'); 
+
+for (int i=0; i<4; i++){
+	Serial.write(myValue.bytes[i]); 
+}
+
+Serial.print('\n');
 ```
+
+ You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A fully working example can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino)
 
 
 
