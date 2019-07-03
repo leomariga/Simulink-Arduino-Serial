@@ -95,19 +95,19 @@ Serial.print('\n');
 
 ## Sending data from Simulink to Arduino
 
+**IMPORTANT: As for the receive block, you need to configure your serial port BEFORE sending data, so remember to [use the configuration block](#configuring-your-serial) before continuing.**
 
-<!-- ```python
-import foobar
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+### Simulink setup
+To send data from Simulink create a project similar to the image below. 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+![serialsendsimulink](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkSendblocks.png)
 
-Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/) -->
+Block | Function
+------------ | -------------
+(step) ref1 | Generate the signal you want to send.
+Zero-Order Hold | Used to set the simulation send rate.
+Single | Convert this signal to a `single` (4 bytes).
+Byte Pack | Convert `single` signal to byte. Use Byte alignment 4 and Data Type uint32.
+Serial Send | Send the bytes. You can add a Header and a Terminator if you want, but I had no problem sending this data without them with this block.
