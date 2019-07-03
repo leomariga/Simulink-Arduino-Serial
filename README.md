@@ -48,7 +48,9 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 
 **Remember:** The *Data type* and *Data size* are correlated, so if you set Data size to `[1 3]` using Data type `single` Simulink will expect to receive 3 * 4 bytes = 12 bytes every step.
 
-
+* **Enable blocking mode:** Make sure to check this option.
+* Select **Output last received value** in the selection box.
+* **Block sample time:** Period in which the arduino is sending data (20 Hz rate in my case).
 
 
 ## Sending data from Simulink to Arduino
