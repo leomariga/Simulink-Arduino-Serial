@@ -88,8 +88,9 @@ for (int i=0; i<4; i++){
 Serial.print('\n');
 ```
 
- You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A fully working example can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino)
+ You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A simple example can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino). This example results in the Arduino generating a sinoid an we can see the received values in the scope:
 
+![seriareceivesignal](https://github.com/leomariga/Simulink-Arduino/blob/master/images/receive_result.png)
 
 
 ## Sending data from Simulink to Arduino
