@@ -23,7 +23,7 @@ Well, first of all, you need to configure the Serial Port you are using for this
 
 ![configserial](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
 
-Make sure your Arduino is connected to your computer and select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is using, open your Arduino IDE > Tools > Ports. 
+Make sure your Arduino is connected to your computer and select its **Communication port** (COM15 in my case). If you don't know which communication port the Arduino is using, open your Arduino IDE > Tools > Ports. 
 
 Next, select the **Baud rate** to communicate with Arduino. Some standard values are 9600 and 115200. This is usually configured in the `setup()` function in your Arduino code. The other parameters in the block you can **simply use the same as the image above** or change it if you know what you are doing.
 
@@ -34,20 +34,21 @@ Next, select the **Baud rate** to communicate with Arduino. Some standard values
 
 
 ### Simulink setup
-Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data in your Simulink project. You need to do some configurations in this block to make the communication correctly. You can see how to configure this block in the figure below. 
+Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data in your Simulink project. You need to configure this block to make the communication correctly. You can see how to configure this block in the figure below. 
 
 ![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
 
 #### Configuring you Serial Receive block:
 
 * **Communication port:** Use the same one you configured in the step above.
-* **Header:** Makes Simulink understand when the message is going to start. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues (Simulink crashes after some time receiving data). In this example I used the byte 'A', but you can use whatever you want.
-* **Terminator:** Same as the header, but used to indicate the package end. I recomend using the end-line '\n'.
+* **Header:** Makes Simulink understand when the message is starting. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues (Simulink crashes after some time receiving data). In this example I used the byte 'A', but you can use whatever you want.
+* **Terminator:** Same as the header, but indicates the package end. I recomend using the end-line '\n'.
 * **Data size:** If you are sending only one `float` from Arduino, use `[1 1]` but you can change it to `[1 2]` or `[1 N]` where N is the number of `float` you are receiving from Serial. 
-* **Data type** If you are sending `float` from Arduino, make sure to select `single` in Simulink, since both type of variables are intrinsicaly the same (floating point number with 4 bytes of length). **Remember:** The *Data type* and *Data size* are correlated, so if you set Data size to `[1 3]` using Data type `single` Simulink will expect to receive 3 * 4 bytes = 12 bytes every iteration.
+* **Data type** If you are sending `float` from Arduino, make sure to select `single` in Simulink, since both type of variables are intrinsicaly the same (floating point number with 4 bytes of length). 
+
+**Remember:** The *Data type* and *Data size* are correlated, so if you set Data size to `[1 3]` using Data type `single` Simulink will expect to receive 3 * 4 bytes = 12 bytes every step.
 
 
-Select the same communication port used in the configuration block in the step above. 
 
 
 ## Sending data from Simulink to Arduino
