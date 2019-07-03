@@ -1,8 +1,10 @@
-# Foobar
+# Simulink and Arduino connection
 
-Foobar is a Python library for dealing with word pluralization.
+Welcome! 
 
-## Installation
+You are here because you are trying to connect your Arduino board to Simulink to transmit some variables (like a hardware in the loop) but everything is going wrong so you are in right place.
+
+You might not know how to start this connection or you bravely discovered how to do it by yourself but nothing is transmitted correctely and your world is falling apart. Don't worry, I'm here to help =) 
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
