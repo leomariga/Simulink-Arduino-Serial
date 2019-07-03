@@ -110,4 +110,4 @@ Block | Function
 Zero-Order Hold | Used to set the simulation send rate.
 Single | Convert this signal to a `single` (4 bytes).
 Byte Pack | Convert `single` signal to byte. Use Byte alignment 4 and Data Type uint32.
-Serial Send | Send the bytes. You can add a Header and a Terminator if you want, but I had no problem sending this data without them with this block.
+Serial Send | Send the bytes. You can add a Header and a Terminator if you want, but I had no problem sending this data without them.
