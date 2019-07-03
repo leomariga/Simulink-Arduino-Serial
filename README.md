@@ -41,7 +41,10 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 #### Configuring you Serial Receive block:
 
 * **Communication port:** Use the same one you configured in the step above.
-* **Header:** Makes Simulink understand when the message is going to start. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues. (If you don't use, after some time receving data simulink crashes.)
+* **Header:** Makes Simulink understand when the message is going to start. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues (Simulink crashes after some time receiving data). In this example I used the byte 'A', but you can use whatever you want.
+* **Terminator:** Same as the header, but used to indicate the package end. I recomend using the end-line '\n'.
+* **Data size:** If you are sending only one `float` from Arduino, use `[1 1]` but you can change it to `[1 2]` or `[1 N]` where N is the number of `float` you are receiving from Serial. 
+* **Data type** If you are sending `float` from Arduino, make sure to select `single` in Simulink, since both type of variables are intrinsicaly the same (floating point number with 4 bytes of length). **Remember:** The *Data type* and *Data size* are correlated, so if you set Data size to `[1 3]` using Data type `single` Simulink will expect to receive 3 * 4 bytes = 12 bytes every iteration.
 
 
 Select the same communication port used in the configuration block in the step above. 
