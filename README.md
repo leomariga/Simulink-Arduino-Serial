@@ -52,6 +52,12 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 * Select **Output last received value** in the selection box.
 * **Block sample time:** Period in which the arduino is sending data (20 Hz rate in my case).
 
+Well done! You can now receive the Arduino data. The only step left is convert it to the variable you want to work, in my case, a `double`.
+
+Serial receive final block diagram:
+
+![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
+
 
 ## Sending data from Simulink to Arduino
 
