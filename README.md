@@ -23,11 +23,9 @@ Well, first of all, you need to configure the Serial Port you are using for this
 
 ![alt text](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
 
-Make sure your Arduino is connected to your computer and select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is connected, open your Arduino IDE > Tools > Ports. 
+Make sure your Arduino is connected to your computer and select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is using, open your Arduino IDE > Tools > Ports. 
 
-Next, select the **Baud rate** used to communicate with Arduino. Some standard values are 9600 and 115200. This is usually configured in the `setup()` function in your Arduino code. 
-
-The other parameters in the block you can **simply use the same as the image above** (or change it the way you want to do the communication if you know what you are doing).
+Next, select the **Baud rate** used to communicate with Arduino. Some standard values are 9600 and 115200. This is usually configured in the `setup()` function in your Arduino code. The other parameters in the block you can **simply use the same as the image above** or change it if you know what you are doing.
 
 
 ## Sending data from Arduino to Simulink
