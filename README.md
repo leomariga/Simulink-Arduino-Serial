@@ -21,7 +21,9 @@ Using this blocks you can send and receive bytes in Arduino and interpret it (yo
 
 ## Sending data from Arduino to Simulink
 
-In this example we are sending an Arduino `float` (4 bytes) to Simulink (which is called `single` there). **Important:** You need to configure your Serial port BEFORE sending or receiving data, so remember to use the [Configuring your Serial](#configuring-your-serial)Serial Configuration block before continuing.
+In this example we are sending an Arduino `float` (4 bytes) to Simulink (which is called `single`). 
+
+**Important: You need to configure your Serial port BEFORE sending or receiving data, so remember to [Use the configuration block](#configuring-your-serial) before continuing.**
 
 
 ## Sending data from Simulink to Arduino
