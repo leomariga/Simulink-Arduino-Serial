@@ -34,10 +34,9 @@ Next, select the **Baud rate** to communicate with Arduino. Some standard values
 
 
 ### Simulink setup
-Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data to your Simulink project. You need to do some configurations in this block to make the communication correctly. You can see how to configure this block in the figure below. 
+Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data in your Simulink project. You need to do some configurations in this block to make the communication correctly. You can see how to configure this block in the figure below. 
 
-
-![seriareceiveblock](serialreceiveblock.png)
+![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
 
 
 
