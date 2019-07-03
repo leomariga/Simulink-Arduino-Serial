@@ -23,7 +23,11 @@ Well, first of all, you need to configure the Serial Port you are using for this
 
 ![alt text](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
 
-Make sure your Arduino is connected select its **communication port** (COM6 in my case), if you don't know which communication port the Arduino is connected, open your Arduino IDE > Tools > Ports. 
+Make sure your Arduino is connected select its **Communication port** (COM6 in my case). If you don't know which communication port the Arduino is connected, open your Arduino IDE > Tools > Ports. 
+
+Select the **Baud rate** used to communicate with Arduino Serial. Some standard values are 9600 and 115200. 
+
+The next parameters in the block you can simply put the same as the image above (or change it the way you want to do the communication).
 
 
 ## Sending data from Arduino to Simulink
