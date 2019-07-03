@@ -13,7 +13,9 @@ To overcome the problem we can send and receive data using the serial blocks fro
 * [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
 * [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
 
-Using this blocks you can send and receive bytes in Arduino and interpret it - you can send ASCII, floats, ints or whatever you want!! \o/. In this example we are sending and receiving binary data, more specificaly, an Arduino `float` (4 bytes) or Simulink (which is called `single`). Though, you can use this same code to send other types of variables. 
+Using this blocks you can send and receive bytes in Arduino and interpret it - you can send ASCII, floats, ints or whatever you want!! \o/. 
+
+In this example we are sending and receiving binary data, more specificaly, an Arduino `float` (4 bytes) or Simulink  `single`. Though, you can use this same code to send other types of variables. 
 
 
 ## Configuring your Serial
@@ -21,7 +23,7 @@ Well, first of all, you need to configure the Serial Port you are using for this
 
 ![alt text](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
 
-
+Make sure your Arduino is connected select its **communication port** (COM6 in my case), if you don't know which communication port the Arduino is connected, open your Arduino IDE > Tools > Ports. 
 
 
 ## Sending data from Arduino to Simulink
