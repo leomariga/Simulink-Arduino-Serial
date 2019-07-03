@@ -70,7 +70,7 @@ typedef union{
 FLOATUNION_t myValue;
 ```
 
-When you need to attribute a value for your `float`, you simply call:
+To attribute a value for your `float`, you simply call:
 
 ```c++
 myValue.number = 1.2;
@@ -88,7 +88,7 @@ for (int i=0; i<4; i++){
 Serial.print('\n');
 ```
 
- You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A simple example can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino). This example results in the Arduino generating a sinoid an we can see the received values in the scope:
+ You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A simple example can be found here](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino), where the Arduino sends a sinoid which is plotted in a scope. 
 
 ![seriareceivesignal](https://github.com/leomariga/Simulink-Arduino/blob/master/images/receive_result.png)
 
