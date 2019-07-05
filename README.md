@@ -158,4 +158,18 @@ In the receiver diagram, the main change is in the *Serial Receive* block. You h
 
 ![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino/blob/master/images/multipleDataSize.png)
 
- This example shows the Simulink transmitting 6 different values to Arduino, and receiving back 3 values (Sum of each pair). [The Arduino code is right here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino)
+This example shows the Simulink transmitting 6 different values to Arduino, and receiving back 3 values (Sum of each pair). [The Arduino code is right here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino).
+
+![outputmultiple](https://github.com/leomariga/Simulink-Arduino/blob/master/images/multipleoutput.png)
+
+## Conclusion
+Hope I could help you in your work. If you have questions just e-mail me!
+
+leomariga@gmail.com
+Leonardo Mariga
+
+As the legend says:
+
+> Struggle with your heart, not with your code. 
+
+Thank you!
