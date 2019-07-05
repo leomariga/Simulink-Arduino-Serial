@@ -1,6 +1,8 @@
 # Simulink and Arduino connection
 
-Welcome! You are here because you are trying to connect your Arduino board to Simulink to transmit some data (maybe some sensor output) but everything is going wrong and your world is falling apart (drama). 
+Welcome! You are here because you are trying to connect your Arduino board to Simulink to transmit some data (maybe some sensor output) but everything is going wrong and your world is falling apart (drama).
+
+![cover](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/cover.png) 
 
 In this tutorial, we are **NOT** using the [official Simulink Arduino Package](https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html), which enables you to access directly Arduino pins and many other features. **What's the problem with this library?** It uses a specific Arduino code, so you can't customize the code inside the board (if you want to use the Arduino as a control device for a "Hardware in the loop" project, as example).
 
@@ -21,7 +23,7 @@ In this example we are sending and receiving binary data, more specifically, an 
 ## Configuring your Serial
 Well, first of all, you need to configure the Serial Port you are using for this communication. To do that, simply put the [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html) block anywhere you want in your Simulink project. 
 
-![configserial](https://github.com/leomariga/Simulink-Arduino/blob/master/images/configurationblock.png)
+![configserial](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/configurationblock.png)
 
 Make sure your Arduino is connected to your computer and select its **Communication port** (COM15 in my case). If you don't know which communication port the Arduino is using, open your Arduino IDE > Tools > Ports. 
 
@@ -36,7 +38,7 @@ Next, select the **Baud rate** to communicate with Arduino. Some standard values
 ### Simulink setup - Receive
 Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialreceive.html) to receive serial data in your Simulink project. You need to configure this block to make the communication correctly. You can see how to configure this block in the figure below. 
 
-![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/serialreceiveblock.png)
+![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/serialreceiveblock.png)
 
 #### Configuring you Serial Receive block:
 
@@ -56,7 +58,7 @@ Well done! You can now receive the Arduino data. The only step left is to conver
 
 ### Serial receive final block diagram:
 
-![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkReceiveblocks.png)
+![seriareceivediagramblock](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/simulinkReceiveblocks.png)
 
 ## Arduino setup - Send
 To send binary data from Arduino you have to convert your `float` to an array of bytes `uint8_t`. An interesting strategy is to use an *union* type like the code below:
@@ -88,9 +90,9 @@ for (int i=0; i<4; i++){
 Serial.print('\n');
 ```
 
- You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A simple example can be found here](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino), where the Arduino sends a sinoid which is plotted in a scope. 
+You need to setup the Serial in the `setup()` function and create a loop with the same time delay as configured in Simulink. [A simple example can be found here](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/Examples/Sigle_signal/Simulink_receive_Arduino_send/arduinoSend/arduinoSend.ino), where the Arduino sends a sinoid which is plotted in a scope. 
 
-![seriareceivesignal](https://github.com/leomariga/Simulink-Arduino/blob/master/images/receive_result.png)
+![seriareceivesignal](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/receive_result.png)
 
 
 ## Sending data from Simulink to Arduino
@@ -101,7 +103,7 @@ Serial.print('\n');
 ### Simulink setup - Send
 To send data from Simulink create a project similar to the image below. 
 
-![serialsendsimulink](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkSendblocks.png)
+![serialsendsimulink](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/simulinkSendblocks.png)
 
 
 Block | Function
@@ -136,31 +138,31 @@ FLOATUNION_t myValue;
 myValue.number = getFloat();
 ```
 
-If you are sending more then one variable, remember to call `getFloat()` as many time as the number of `floats` you are sending. [A receive example can be found here](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_send_Arduino_receive/arduinoReceive/arduinoReceive.ino)
+If you are sending more then one variable, remember to call `getFloat()` as many time as the number of `floats` you are sending. [A receive example can be found here](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/Examples/Sigle_signal/Simulink_send_Arduino_receive/arduinoReceive/arduinoReceive.ino)
 
 
 ## Send and receive (Hardware in the loop)
 Now you have both the send and receive blocks working you can join everything into a single project. The idea here is to create a simulation where the Arduino receive some data, process it, and sends back to Simulink. To do that, the Simulink block diagram is shown below:
 
-![sendreceive](https://github.com/leomariga/Simulink-Arduino/blob/master/images/SendAndReceive.png)
+![sendreceive](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/SendAndReceive.png)
 
 
-The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino). In this example, Simulink sends a signal which passes through Arduino and sends back to Simulink. 
+The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino). In this example, Simulink sends a signal which passes through Arduino and sends back to Simulink. 
 
 ## Array of floats
 The blocks used in this simulation enables transmitting more then one variable in each simulation step. To do so, you have to make some minor adjustments in your simulation. The figure below shows this communication.
 
-![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkMultipleSendReceive.png)
+![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/simulinkMultipleSendReceive.png)
 
 Notice that nothing has changed in the sender diagram. The block *byte pack* allow converting an array of `float` into an array of `bytes`. When the array arrives in the *Serial Send*, it concatenates the array in order and sends the bytes in the serial. 
 
 In the receiver diagram, the main change is in the *Serial Receive* block. You have to set the number of floats the Arduino is sending in order receive the data correctly. The figure bellow illustrates how to configure the block to receive 3 floats. 
 
-![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino/blob/master/images/multipleDataSize.png)
+![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/multipleDataSize.png)
 
-This example shows the Simulink transmitting 6 different values to Arduino, and receiving back 3 values (Sum of each pair). [The Arduino code is right here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino).
+This example shows the Simulink transmitting 6 different values to Arduino, and receiving back 3 values (Sum of each pair). [The Arduino code is right here.](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino).
 
-![outputmultiple](https://github.com/leomariga/Simulink-Arduino/blob/master/images/multipleoutput.png)
+![outputmultiple](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/multipleoutput.png)
 
 ## Conclusion
 Hope I could help you in your work. If you have questions just e-mail me!
