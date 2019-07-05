@@ -166,6 +166,7 @@ This example shows the Simulink transmitting 6 different values to Arduino, and 
 Hope I could help you in your work. If you have questions just e-mail me!
 
 leomariga@gmail.com
+
 Leonardo Mariga
 
 As the legend says:
