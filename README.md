@@ -107,7 +107,7 @@ To send data from Simulink create a project similar to the image below.
 Block | Function
 ------------ | -------------
 Step| Generate the signal you want to send.
-Zero-Order Hold | Used to set the simulation send rate.
+Zero-Order Hold | Set the simulation send rate.
 Single | Convert this signal to a `single` (4 bytes).
 Byte Pack | Convert `single` signal to byte. Use Byte alignment 4 and Data Type uint32.
 Serial Send | Send the bytes. You can add a Header and a Terminator if you want, but I had no problem sending this data without them.
@@ -145,4 +145,17 @@ Now you have both the send and receive blocks working you can join everything in
 ![sendreceive](https://github.com/leomariga/Simulink-Arduino/blob/master/images/SendAndReceive.png)
 
 
-The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino)
+The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino). In this example, Simulink sends a signal which passes through Arduino and sends back to simulink. 
+
+## Array of floats
+The blocks used in this simulation enables transmitting more then one variable in each simulation step. To do so, you have to make some minor adjustments in your simulation. The figure below shows this communication.
+
+![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino/blob/master/images/simulinkMultipleSendReceive.png)
+
+Notice that nothing has changed in the sender diagram. The block *byte pack* allow converting an array of `float` into an array of `bytes`. When the array arrives in the *Serial Send*, it concatenates the array in order and sends the bytes in the serial. 
+
+In the receiver diagram, the main change is in the *Serial Receive* block. You have to set the number of floats the Arduino is sending in order receive the data correctely. The figure bellow illustrates how to configure the block to receive 3 floats. 
+
+![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino/blob/master/images/multipleDataSize.png)
+
+ This example shows the Simulink transmitting 6 different values to Arduino, and receiving back 3 values (Sum of each pair). [The Arduino code is right here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino)
