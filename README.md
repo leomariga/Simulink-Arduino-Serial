@@ -137,3 +137,12 @@ myValue.number = getFloat();
 ```
 
 If you are sending more then one variable, remember to call `getFloat()` as many time as the number of `floats` you are sending. [A receive example can be found here](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_send_Arduino_receive/arduinoReceive/arduinoReceive.ino)
+
+
+## Send and receive (Hardware in the loop)
+Now you have both the send and receive blocks working you can join everything into a single project. The idea here is to create a simulation where the Arduino receive some data, process it, and sends back to Simulink. To do that, the Simulink block diagram is shown below:
+
+![sendreceive](https://github.com/leomariga/Simulink-Arduino/blob/master/images/SendAndReceive.png)
+
+
+The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino)
