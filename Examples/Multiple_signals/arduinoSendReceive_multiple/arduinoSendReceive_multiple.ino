@@ -4,7 +4,7 @@ typedef union{
   uint8_t bytes[4];
 } FLOATUNION_t;
 
-// Create the variable you want to send
+// Create the variables you want to receive
 FLOATUNION_t myValue1;
 FLOATUNION_t myValue2;
 FLOATUNION_t myValue3;
@@ -12,6 +12,7 @@ FLOATUNION_t myValue4;
 FLOATUNION_t myValue5;
 FLOATUNION_t myValue6;
 
+// Create the variables to send
 FLOATUNION_t send1;
 FLOATUNION_t send2;
 FLOATUNION_t send3;
@@ -22,6 +23,7 @@ void setup() {
 
 }
 void loop(){
+  // Get the floats from serial
   myValue1.number = getFloat(); // Give your float a value
   myValue2.number = getFloat(); // Give your float a value
   myValue3.number = getFloat(); // Give your float a value
@@ -29,6 +31,9 @@ void loop(){
   myValue5.number = getFloat(); // Give your float a value
   myValue6.number = getFloat(); // Give your float a value
 
+  // Do whatever you want here
+
+  // Send some variables back
   send1.number = myValue1.number+myValue2.number;
   send2.number = myValue3.number+myValue4.number;
   send3.number = myValue5.number+myValue6.number;
