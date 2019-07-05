@@ -8,15 +8,6 @@ In this tutorial, we are **NOT** using the [official Simulink Arduino Package](h
 
 If you don't want to read everything, just select what you want to learn:
 ## Topics
-* [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html)
-* [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
-* [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
-
-## The solution
-To overcome the problem we can send and receive data using the serial blocks from Simulink without downloading any extra packages:
-
-### Instrument Control Toolbox
-
 * [Configure you serial port](#configuring-your-serial)
 * [Arduino to Simulink](#sending-data-from-arduino-to-simulink)
   * [Simulink Receive](#simulink-setup---receive)
@@ -26,6 +17,16 @@ To overcome the problem we can send and receive data using the serial blocks fro
   * [Arduino Receive](#arduino-setup---receive)
 * [Sending and receiving](#send-and-receive-hardware-in-the-loop)
 * [Sending and receiving (multiple variables)](#array-of-floats)
+
+
+## The solution
+To overcome the problem we can send and receive data using the serial blocks from Simulink without downloading any extra packages:
+
+### Instrument Control Toolbox
+
+* [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html)
+* [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
+* [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
 
 Using this blocks you can send and receive bytes in Arduino and interpret it as ASCII, floats, ints or whatever you want!! \o/. 
 
