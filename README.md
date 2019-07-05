@@ -6,14 +6,26 @@ Welcome! You are here because you are trying to connect your Arduino board to Si
 
 In this tutorial, we are **NOT** using the [official Simulink Arduino Package](https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html), which enables you to access directly Arduino pins and many other features. **What's the problem with this library?** It uses a specific Arduino code, so you can't customize the code inside the board (if you want to use the Arduino as a control device for a "Hardware in the loop" project, as example).
 
+If you don't want to read everything, just select what you want to learn:
+## Topics
+* [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html)
+* [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
+* [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
+
 ## The solution
 To overcome the problem we can send and receive data using the serial blocks from Simulink without downloading any extra packages:
 
 ### Instrument Control Toolbox
 
-* [Serial Configuration](https://www.mathworks.com/help/instrument/serialconfiguration.html)
-* [Serial Send](https://www.mathworks.com/help/instrument/serialsend.html)
-* [Serial Receive](https://www.mathworks.com/help/instrument/serialreceive.html)
+* [Configure you serial port](#configuring-your-serial)
+* [Arduino to Simulink](#sending-data-from-arduino-to-simulink)
+  * [Simulink Receive](#simulink-setup---receive)
+  * [Arduino Send](#arduino-setup---send)
+* [Simulink to Arduino](#sending-data-from-simulink-to-arduino)
+  * [Simulink Send](#simulink-setup---send)
+  * [Arduino Receive](#arduino-setup---receive)
+* [Sending and receiving](#send-and-receive-hardware-in-the-loop)
+* [Sending and receiving (multiple variables)](#array-of-floats)
 
 Using this blocks you can send and receive bytes in Arduino and interpret it as ASCII, floats, ints or whatever you want!! \o/. 
 
