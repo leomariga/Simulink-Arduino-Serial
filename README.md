@@ -2,7 +2,7 @@
 
 Welcome! You are here because you are trying to connect your Arduino board to Simulink to transmit some data (maybe some sensor output) but everything is going wrong and your world is falling apart (drama). 
 
-In this tutorial, we are **NOT** using the [official Simulink Arduino Package](https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html), which enables you to acess directely Arduino pins and many other features. **What's the problem with this library?** It uses a specific Arduino code, so you can't customize the code inside the board (if you want to use the Arduino as a control device for a "Hardware in the loop" project, as example).
+In this tutorial, we are **NOT** using the [official Simulink Arduino Package](https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html), which enables you to access directly Arduino pins and many other features. **What's the problem with this library?** It uses a specific Arduino code, so you can't customize the code inside the board (if you want to use the Arduino as a control device for a "Hardware in the loop" project, as example).
 
 ## The solution
 To overcome the problem we can send and receive data using the serial blocks from Simulink without downloading any extra packages:
@@ -15,7 +15,7 @@ To overcome the problem we can send and receive data using the serial blocks fro
 
 Using this blocks you can send and receive bytes in Arduino and interpret it as ASCII, floats, ints or whatever you want!! \o/. 
 
-In this example we are sending and receiving binary data, more specificaly, an Arduino `float` (4 bytes) or Simulink  `single`. Though, you can use this same code to send other types of variables. 
+In this example we are sending and receiving binary data, more specifically, an Arduino `float` (4 bytes) or Simulink  `single`. Though, you can use this same code to send other types of variables. 
 
 
 ## Configuring your Serial
@@ -42,17 +42,17 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 
 * **Communication port:** Use the same one you configured in the step above.
 * **Header:** Makes Simulink understand when the message is starting. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues (Simulink crashes after some time receiving data). In this example I used the byte 'A', but you can use whatever you want.
-* **Terminator:** Same as the header, but indicates the package end. I recomend using the end-line '\n'.
+* **Terminator:** Same as the header, but indicates the package end. I recommend using the end-line '\n'.
 * **Data size:** If you are sending only one `float` from Arduino, use `[1 1]` but you can change it to `[1 2]` or `[1 N]` where N is the number of `float` you are receiving from Serial. 
-* **Data type** If you are sending `float` from Arduino, make sure to select `single` in Simulink, since both type of variables are intrinsicaly the same (floating point number with 4 bytes of length). 
+* **Data type** If you are sending `float` from Arduino, make sure to select `single` in Simulink, since both type of variables are intrinsically the same (floating point number with 4 bytes of length). 
 
 **Remember:** The *Data type* and *Data size* are correlated, so if you set Data size to `[1 3]` using Data type `single` Simulink will expect to receive 3 * 4 bytes = 12 bytes every step.
 
 * **Enable blocking mode:** Make sure to check this option.
 * Select **Output last received value** in the selection box.
-* **Block sample time:** Period in which the arduino is sending data (20 Hz rate in my case).
+* **Block sample time:** Period in which the Arduino is sending data (20 Hz rate in my case).
 
-Well done! You can now receive the Arduino data. The only step left is convert it to the variable you want to work, in my case, a `double`.
+Well done! You can now receive the Arduino data. The only step left is to convert it to the variable you want to work, in my case, a `double`.
 
 ### Serial receive final block diagram:
 
@@ -145,7 +145,7 @@ Now you have both the send and receive blocks working you can join everything in
 ![sendreceive](https://github.com/leomariga/Simulink-Arduino/blob/master/images/SendAndReceive.png)
 
 
-The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino). In this example, Simulink sends a signal which passes through Arduino and sends back to simulink. 
+The Arduino code consists in joining both receive and send codes. [A fully working example of this code can be found here.](https://github.com/leomariga/Simulink-Arduino/blob/master/Examples/Sigle_signal/Simulink_SendReceive_Arduino_SendReceive/arduinoSendReceive/arduinoSendReceive.ino). In this example, Simulink sends a signal which passes through Arduino and sends back to Simulink. 
 
 ## Array of floats
 The blocks used in this simulation enables transmitting more then one variable in each simulation step. To do so, you have to make some minor adjustments in your simulation. The figure below shows this communication.
@@ -154,7 +154,7 @@ The blocks used in this simulation enables transmitting more then one variable i
 
 Notice that nothing has changed in the sender diagram. The block *byte pack* allow converting an array of `float` into an array of `bytes`. When the array arrives in the *Serial Send*, it concatenates the array in order and sends the bytes in the serial. 
 
-In the receiver diagram, the main change is in the *Serial Receive* block. You have to set the number of floats the Arduino is sending in order receive the data correctely. The figure bellow illustrates how to configure the block to receive 3 floats. 
+In the receiver diagram, the main change is in the *Serial Receive* block. You have to set the number of floats the Arduino is sending in order receive the data correctly. The figure bellow illustrates how to configure the block to receive 3 floats. 
 
 ![sendreceivemultiples](https://github.com/leomariga/Simulink-Arduino/blob/master/images/multipleDataSize.png)
 
