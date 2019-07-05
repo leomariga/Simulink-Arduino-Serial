@@ -1,8 +1,8 @@
+![cover](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/cover.png) 
+
 # Simulink and Arduino connection
 
 Welcome! You are here because you are trying to connect your Arduino board to Simulink to transmit some data (maybe some sensor output) but everything is going wrong and your world is falling apart (drama).
-
-![cover](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/cover.png) 
 
 In this tutorial, we are **NOT** using the [official Simulink Arduino Package](https://www.mathworks.com/help/supportpkg/arduino/examples/getting-started-with-arduino-hardware.html), which enables you to access directly Arduino pins and many other features. **What's the problem with this library?** It uses a specific Arduino code, so you can't customize the code inside the board (if you want to use the Arduino as a control device for a "Hardware in the loop" project, as example).
 
