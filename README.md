@@ -53,7 +53,7 @@ Use the [Serial Receive block](https://www.mathworks.com/help/instrument/serialr
 
 ![seriareceiveblock](https://github.com/leomariga/Simulink-Arduino-Serial/blob/master/images/serialreceiveblock.png)
 
-#### Configuring you Serial Receive block:
+#### Configuring your Serial Receive block:
 
 * **Communication port:** Use the same one you configured in the step above.
 * **Header:** Makes Simulink understand when the message is starting. This is not strictly necessary to your communication, but **I highly recommend using it** because avoids all types of synchronization issues (Simulink crashes after some time receiving data). In this example I used the byte 'A', but you can use whatever you want.
@@ -189,3 +189,5 @@ As the legend says:
 > Struggle with your heart, not with your code. 
 
 Thank you!
+
+*Please, star this repo. Would make me happy :)*
